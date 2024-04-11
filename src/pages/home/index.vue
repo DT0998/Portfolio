@@ -1,5 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import IntroduceComponent from '@/components/introduce/index.vue';
+</script>
 
 <template>
-  <main>welcome</main>
+  <IntroduceComponent />
 </template>
