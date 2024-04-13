@@ -4,9 +4,17 @@ import Layout from './layouts/index.vue'
 </script>
 
 <template>
-  <Layout>
-    <RouterView />
-  </Layout>
+  <div class="app">
+    <Layout>
+      <RouterView />
+    </Layout>
+  </div>
 </template>
 
-<style scoped></style>
+<style lang="scss">
+.dark {
+  /* dark mode */
+  background: hsl(240, 100%, 10%);
+  color: #fff;
+}
+</style>
