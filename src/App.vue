@@ -14,7 +14,12 @@ import Layout from './layouts/index.vue'
 <style lang="scss">
 .dark {
   /* dark mode */
-  background: hsl(240, 100%, 10%);
+  background: oklch(17.76% 0 0);
   color: #fff;
+}
+.light {
+  /* light mode */
+  background: oklch(96.12% 0 0);
+  color: #000;
 }
 </style>

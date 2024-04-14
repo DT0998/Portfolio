@@ -10,9 +10,7 @@
 
 body {
   min-height: 100vh;
-  transition:
-    color 0.5s,
-    background-color 0.5s;
+  transition: all .5s;
   line-height: 1.6;
   /* font-family: ; */
   font-size: 15px;

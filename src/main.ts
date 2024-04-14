@@ -4,10 +4,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
-import { BiGithub,CoMoon } from 'oh-vue-icons/icons'
+import { BiGithub,CoMoon,FaTumblr } from 'oh-vue-icons/icons'
 
 // import use icon
-addIcons(BiGithub,CoMoon)
+addIcons(BiGithub,CoMoon,FaTumblr)
 const app = createApp(App)
 
 // add all icons to the library so you can use it in your page
