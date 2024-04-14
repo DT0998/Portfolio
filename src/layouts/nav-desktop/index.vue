@@ -14,21 +14,21 @@ const isDark = useDark({
     <div v-if="!isTablet" class="flex flex-auto justify-center">
         <nav class="flex flex-col justify-between items-center">
             <ul class="flex flex-col">
-                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180">
+                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer">
                     Project
                 </li>
-                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180">
+                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer">
                     Details
                 </li>
-                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180">
+                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer">
                     Contact
                 </li>
             </ul>
             <ul>
-                <li>
+                <a href="https://github.com/DT0998" target="_blank">
                     <v-icon name="bi-github" width="24" height="24"
                         :class="{ 'text-white': isDark, 'text-black': !isDark }" />
-                </li>
+                </a>
             </ul>
         </nav>
         <ButtonDarkmode

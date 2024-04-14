@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useDark, useToggle } from "@vueuse/core";
+import { reactive, ref } from "vue";
 interface IButtonDarkmodeProps {
     extraClass?: string;
 }
@@ -10,12 +11,27 @@ const isDark = useDark({
     valueLight: 'light',
 });
 const toggleDarkmode = useToggle(isDark);
+const isHover = ref(false);
+
+// dark theme style button
+const darkThemeStyleBtn = reactive({
+    background: 'color-mix(in lab, oklch(100% 0 0) 10%, transparent)',
+    clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)',
+})
+
+// white theme style button
+const lightThemeStyleBtn = reactive({
+    background: 'color-mix(in lab, oklch(0% 0 0) 0%, transparent)',
+    clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)',
+})
 </script>
 
 <template>
-    <div :class="[extraClass]">
+    <div :class="[extraClass]" class="p-[8px] h-[50px] cursor-pointer" @click="toggleDarkmode()"
+        @mouseleave="isHover = false" @mouseover="isHover = true"
+        :style="[isHover && (isDark ? darkThemeStyleBtn : lightThemeStyleBtn)]">
         <!-- button dark mode -->
-        <button @click="toggleDarkmode()" class="scale-75 toggle-mode cursor-pointer"
+        <button class="scale-75 toggle-mode"
             :class="{ 'toggle-darkmode': isDark, 'toggle-lightmode': !isDark }"></button>
     </div>
 </template>
