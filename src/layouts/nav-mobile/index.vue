@@ -63,9 +63,9 @@ const lightThemeStyleMenu = reactive({
         <button class="menu-wrapper fixed right-[24px] md:right-[48px] top-[24px] md:top-[48px] z-[5] flex flex-col p-[8px] h-[50px]"
             @click="toggleMenu()" :class="{ 'active': openMenu }" @mouseleave="isHover = false"
             @mouseover="isHover = true" :style="[isHover && (isDark ? darkThemeStyleMenu : lightThemeStyleMenu)]">
-            <div class="menu-bar one-bar relative cursor-pointer w-[24px] h-[4px] "
+            <div class="menu-bar one-bar relative cursor-pointer w-[24px] min-h-[5px]"
                 :class="{ 'bg-white': isDark, 'bg-black': !isDark }"></div>
-            <div class="menu-bar two-bar relative cursor-pointer w-[24px] h-[4px] "
+            <div class="menu-bar two-bar relative cursor-pointer w-[24px] min-h-[5px]"
                 :class="{ 'bg-white': isDark, 'bg-black': !isDark }"></div>
         </button>
     </div>
