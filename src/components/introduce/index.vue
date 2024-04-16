@@ -30,13 +30,13 @@ const lightThemeStylePlus = reactive({
             Trieu Duong
         </span>
         <h2 class="w-full">
-            <div class="flex items-center">
+            <div class="flex items-center h-[42px] md:h-[80px]">
                 <span class="text-bold text-[2.6rem] md:text-[5rem]">Developer</span>
                 <div class="line h-[2px] ml-[20px] w-full" :style="[isDark ? darkThemeStyleLine : lightThemeStyleLine]">
                 </div>
             </div>
-            <div class="flex items-center">
-                <v-icon name="co-plus" width="64" height="100" class=" opacity-40 mr-[10px]"
+            <div class="flex items-center h-[42px] md:h-[80px]">
+                <v-icon name="co-plus" class=" opacity-40 mr-[10px] md:w-[64px] md:h-[100px] h-[25px] w-[42px]"
                     :style="[isDark ? darkThemeStylePlus : lightThemeStylePlus]" />
                     <span class="text-bold text-[2.6rem] md:text-[5rem]">Animator</span>
                     <!-- <span class="text-bold text-[2.6rem] lg:text-[5rem]">Illustrator</span> -->
