@@ -3,5 +3,12 @@
     src: url('./fonts/gotham-book.woff2');
 }
 
+@font-face {
+    font-family: IPA Gothic;
+    src: url('./fonts/ipa-gothic.woff2');
+}
+
 $systemFontStack: "system-ui, -apple-system, BlinkMacSystemFont, San Francisco, Roboto, Segoe UI, Ubuntu, Helvetica Neue, sans-serif";
 $fontStack: Gotham, $systemFontStack;
+$japaneseFontStack: "IPA Gothic, ヒラギノ角ゴ Pro W3, Hiragino Kaku Gothic Pro, Hiragino Sans, Osaka, メイリオ, Meiryo, Segoe UI, sans-serif";
+$monoFontStack: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace";

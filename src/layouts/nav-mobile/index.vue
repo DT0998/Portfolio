@@ -1,14 +1,9 @@
 <script setup lang="ts">
 import ButtonDarkmode from "@/components/button-darkmode/index.vue";
-import { useDark } from "@vueuse/core";
-import { useMediaQuery } from '@vueuse/core';
+import { useMediaQuery, useDark } from '@vueuse/core';
 import { reactive, ref } from "vue";
+const isDark = useDark();
 const isTablet = useMediaQuery('(max-width: 768px)')
-const isDark = useDark({
-    selector: 'body',
-    valueDark: 'dark',
-    valueLight: 'light',
-});
 const openMenu = ref(false)
 const isHover = ref(false);
 const toggleMenu = () => {
@@ -60,7 +55,8 @@ const lightThemeStyleMenu = reactive({
                 </ul>
             </div>
         </nav>
-        <button class="menu-wrapper fixed right-[24px] md:right-[48px] top-[24px] md:top-[48px] z-[5] flex flex-col p-[8px] h-[50px]"
+        <button
+            class="menu-wrapper fixed right-[24px] md:right-[48px] top-[24px] md:top-[48px] z-[5] flex flex-col p-[8px] h-[50px]"
             @click="toggleMenu()" :class="{ 'active': openMenu }" @mouseleave="isHover = false"
             @mouseover="isHover = true" :style="[isHover && (isDark ? darkThemeStyleMenu : lightThemeStyleMenu)]">
             <div class="menu-bar one-bar relative cursor-pointer w-[24px] min-h-[5px]"

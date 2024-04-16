@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import { useDark, useToggle } from "@vueuse/core";
+import { useToggle, useDark } from "@vueuse/core";
 import { reactive, ref } from "vue";
 interface IButtonDarkmodeProps {
     extraClass?: string;
 }
 const { extraClass } = defineProps<IButtonDarkmodeProps>();
-const isDark = useDark({
-    selector: 'body',
-    valueDark: 'dark',
-    valueLight: 'light',
-});
+const isDark = useDark();
 const toggleDarkmode = useToggle(isDark);
 const isHover = ref(false);
 

@@ -1,12 +1,8 @@
 <script setup lang="ts">
 import NavMobile from "@/layouts/nav-mobile/index.vue";
 import NavDesktop from "@/layouts/nav-desktop/index.vue";
-import { useDark } from "@vueuse/core";
-const isDark = useDark({
-    selector: 'body',
-    valueDark: 'dark',
-    valueLight: 'light',
-});
+import { useDark } from '@vueuse/core';
+const isDark = useDark();
 </script>
 
 <template>

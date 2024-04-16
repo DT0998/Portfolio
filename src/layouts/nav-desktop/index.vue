@@ -1,13 +1,8 @@
 <script setup lang="ts">
 import ButtonDarkmode from "@/components/button-darkmode/index.vue";
-import { useDark } from "@vueuse/core";
-import { useMediaQuery } from '@vueuse/core';
+import { useMediaQuery,useDark } from '@vueuse/core';
 const isTablet = useMediaQuery('(max-width: 768px)')
-const isDark = useDark({
-    selector: 'body',
-    valueDark: 'dark',
-    valueLight: 'light',
-});
+const isDark = useDark();
 </script>
 
 <template>
