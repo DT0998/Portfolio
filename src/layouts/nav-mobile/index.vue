@@ -28,7 +28,7 @@ const darkThemeStyleMenu = reactive({
 
 // white theme style menu
 const lightThemeStyleMenu = reactive({
-    background: 'color-mix(in lab, oklch(0% 0 0) 0%, transparent)',
+    background: 'color-mix(in lab, oklch(0% 0 0) 10%, transparent)',
     clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)',
 })
 

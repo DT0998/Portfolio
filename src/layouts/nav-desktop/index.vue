@@ -22,7 +22,7 @@ const isDark = useDark();
             <ul>
                 <a href="https://github.com/DT0998" target="_blank">
                     <v-icon name="bi-github" width="24" height="24"
-                        :class="{ 'text-white': isDark, 'text-black': !isDark }" />
+                        :class="{ 'text-white': isDark, 'text-black': !isDark }" class="logo-github" />
                 </a>
             </ul>
         </nav>
@@ -32,4 +32,11 @@ const isDark = useDark();
 </template>
 
 
-<style lang="scss"></style>
+<style lang="scss">
+.logo-github {
+    transition: color 0.6s;
+}
+.logo-github:hover {
+    color: #75c05e;
+}
+</style>
