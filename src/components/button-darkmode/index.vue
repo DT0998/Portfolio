@@ -15,7 +15,7 @@ const darkThemeStyleBtn = reactive({
     clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)',
 })
 
-// white theme style button
+// light theme style button
 const lightThemeStyleBtn = reactive({
     background: 'color-mix(in lab, oklch(0% 0 0) 5%, transparent)',
     clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)',
