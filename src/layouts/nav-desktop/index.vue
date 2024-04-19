@@ -10,7 +10,7 @@ const isDark = useDark();
         <nav class="flex flex-col justify-between items-center">
             <ul class="flex flex-col">
                 <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer">
-                    Project
+                    Projects
                 </li>
                 <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer">
                     Details

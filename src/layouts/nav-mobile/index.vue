@@ -40,7 +40,7 @@ const lightThemeStyleMenu = reactive({
             :class="{ 'transform-none': openMenu, 'close-menu': !openMenu }"
             :style="[isDark ? darkThemeStyleNav : lightThemeStyleNav]">
             <ul class="w-full h-full flex items-center justify-center flex-col ">
-                <li class="p-[24px] w-full text-center">Project</li>
+                <li class="p-[24px] w-full text-center">Projects</li>
                 <li class="p-[24px] w-full text-center">Details</li>
                 <li class="p-[24px] w-full text-center">Contact</li>
             </ul>

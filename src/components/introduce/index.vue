@@ -25,7 +25,7 @@ const lightThemeStylePlus = reactive({
 </script>
 
 <template>
-    <section class="h-screen flex items-start flex-col justify-center">
+    <section class="h-screen flex items-start flex-col justify-center md:p-[64px]">
         <span class="text-[1.125rem]">
             Trieu Duong
         </span>

@@ -1,0 +1,37 @@
+<script setup lang="ts">
+import { useDark } from '@vueuse/core';
+import { ref } from 'vue';
+const isDark = useDark();
+const isHoverSvg = ref(false);
+console.log(isHoverSvg)
+</script>
+
+<template>
+    <svg height="29" width="48" id="tumblr" viewBox="0 0 512.002 512.002"
+        :class="{ 'text-white': isDark, 'text-black': !isDark }" class="cursor-pointer" @mouseleave="isHoverSvg = false"
+        @mouseover="isHoverSvg = true">
+        <!-- animation fill svg -->
+        <linearGradient id="green-fill" x1="0.5" y1="1" x2="0.5" y2="0">
+            <stop offset="0%" :stop-color="isHoverSvg ? '#75c05e' : 'currentColor'">
+                <animate attributeName="offset" dur="3s" begin="mouseover" values="0;5;0" repeatCount="1" />
+                <animate attributeName="stop-opacity" dur="0.1s" begin="mouseleave" v-if="!isHoverSvg" values="0;5;0" repeatCount="1" />
+            </stop>
+            <stop offset="100%" :stop-color="isHoverSvg ? 'currentColor' : '#75c05e'">
+                <animate attributeName="offset" values="0;5;0" dur="3s" begin="mouseover" repeatCount="1"  />
+                <animate attributeName="stop-opacity" values="0;5;0" dur="3s" begin="mouseover" repeatCount="1"  />
+            </stop>
+        </linearGradient>
+
+        <!-- path tumblr icon -->
+        <path class="logo" fill="url(#green-fill)" d="M412.537,391.313c-2.664-1.442-5.913-1.303-8.455,0.365c-23.37,15.352-47.02,23.134-70.288,23.134
+        c-12.681,0-23.593-2.849-33.422-8.749c-6.644-3.908-11.046-8.917-13.442-15.289c-1.828-4.919-4.013-18.003-4.013-52.421V219.529
+        H392.2c4.562,0,8.258-3.698,8.258-8.258V133.48c0-4.562-3.696-8.258-8.258-8.258H282.916V8.258c0-4.562-3.696-8.258-8.258-8.258
+        h-70.497c-4.167,0-7.683,3.107-8.194,7.244c-3.032,24.495-8.59,44.83-16.533,60.451c-7.835,15.494-18.401,28.946-31.41,39.995
+        c-12.952,11.044-28.822,19.653-47.175,25.585c-3.409,1.102-5.72,4.276-5.72,7.858v70.137c0,4.56,3.696,8.258,8.258,8.258h46.523
+        v165.553c0,23.935,2.515,41.885,7.69,54.863c5.216,13.139,14.584,25.593,27.851,37.026c13.084,11.233,29.016,19.991,47.352,26.026
+        c18.12,5.976,39.193,9.005,62.632,9.005c20.506,0,39.872-2.096,57.559-6.23c17.722-4.152,37.622-11.413,59.146-21.578
+        c2.89-1.364,4.732-4.273,4.732-7.467v-78.144C416.875,395.545,415.212,392.754,412.537,391.313z" />
+    </svg>
+</template>
+
+<style lang="scss"></style>
