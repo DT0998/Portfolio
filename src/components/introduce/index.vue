@@ -26,8 +26,8 @@ const lightThemeStylePlus = reactive({
 
 <template>
     <section class="h-screen flex items-start flex-col justify-center md:p-[64px]">
-        <span class="text-[1.125rem]">
-            Trieu Duong
+        <span class="text-[1.125rem] opacity-40 mb-[32px]">
+            TRIEU DUONG
         </span>
         <h2 class="w-full">
             <div class="flex items-center h-[42px] md:h-[80px]">
@@ -35,11 +35,17 @@ const lightThemeStylePlus = reactive({
                 <div class="line h-[2px] ml-[20px] w-full" :style="[isDark ? darkThemeStyleLine : lightThemeStyleLine]">
                 </div>
             </div>
-            <div class="flex items-center h-[42px] md:h-[80px]">
-                <v-icon name="co-plus" class=" opacity-40 mr-[10px] md:w-[64px] md:h-[100px] h-[25px] w-[42px]"
-                    :style="[isDark ? darkThemeStylePlus : lightThemeStylePlus]" />
-                    <span class="text-bold text-[2.6rem] md:text-[5rem]">Animator</span>
-                    <!-- <span class="text-bold text-[2.6rem] lg:text-[5rem]">Illustrator</span> -->
+            <div class="flex items-center h-[42px] md:h-[80px] mt-[5px]">
+                <div class="h-full relative z-[1]" >
+                    <div class="introduce w-full absolute top-0 z-[10] w-full h-full"></div>
+                    <div class="content-introduce flex items-center w-fit h-full">
+                        <v-icon name="co-plus"
+                        class="opacity-40 mr-[10px] md:w-[64px] md:h-[100px] h-[25px] w-[42px] "
+                            :style="[isDark ? darkThemeStylePlus : lightThemeStylePlus]" />
+                        <span class="text-bold text-[2.6rem] md:text-[5rem] title-introduce"></span>
+                        <!-- <span class="text-bold text-[2.6rem] lg:text-[5rem]">Illustrator</span> -->
+                    </div>
+                </div>
             </div>
         </h2>
     </section>
@@ -48,5 +54,45 @@ const lightThemeStylePlus = reactive({
 <style lang="scss">
 .line {
     content: "";
+}
+
+.introduce {
+    background: linear-gradient(to left, #75c05e 50%, transparent 50%);
+    background-size: 200% 100%;
+    animation: slideLeftToRight 14s ease infinite;
+    transition: all 1s ease .4s;
+    animation-delay: 10s;
+    animation-duration: 12s;
+}
+
+.content-introduce {
+    animation: show 14s ease infinite;
+    transition: all 1s ease .4s;
+    animation-delay: 10s;
+    animation-duration: 13s;
+}
+
+.title-introduce::after {
+    content: "Illustrator";
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeftToRight {
+    0% {
+        background-position: right bottom;
+    }
+
+    100% {
+        background-position: left bottom;
+    }
 }
 </style>
