@@ -2,6 +2,7 @@
 import ButtonDarkmode from "@/components/button-darkmode/index.vue";
 import { useMediaQuery, useDark } from '@vueuse/core';
 import { reactive, ref } from "vue";
+import { variables } from '@/assets/style/variables';
 const isDark = useDark();
 const isTablet = useMediaQuery('(max-width: 768px)')
 const openMenu = ref(false)
@@ -12,23 +13,23 @@ const toggleMenu = () => {
 
 // dark theme style nav
 const darkThemeStyleNav = reactive({
-    background: 'color-mix(in lab, oklch(17.76% 0 0) 70%, transparent)',
+    background: `color-mix(in lab, ${variables.$bgDark} 70%, transparent)`,
 })
 
 // white theme style nav
 const lightThemeStyleNav = reactive({
-    background: 'color-mix(in lab, oklch(96.12% 0 0) 70%, transparent)',
+    background: `color-mix(in lab, ${variables.$bgLight} 70%, transparent)`,
 })
 
 // dark theme style menu
 const darkThemeStyleMenu = reactive({
-    background: 'color-mix(in lab, oklch(100% 0 0) 10%, transparent)',
+    background: `color-mix(in lab, ${variables.$colorMixDark} 10%, transparent)`,
     clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)',
 })
 
 // white theme style menu
 const lightThemeStyleMenu = reactive({
-    background: 'color-mix(in lab, oklch(0% 0 0) 10%, transparent)',
+    background: `color-mix(in lab, ${variables.$colorMixLight} 10%, transparent)`,
     clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)',
 })
 
@@ -69,13 +70,14 @@ const lightThemeStyleMenu = reactive({
 
 
 <style lang="scss">
+@import '@/assets/style/variables.scss';
+
 .close-menu {
     transform: translate3d(0, -100%, 0);
 }
 
 .overlay {
-    --backdrop: blur(4px) saturate(120%);
-    backdrop-filter: var(--backdrop);
+    backdrop-filter: $backdrop;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition: all .5s;
 }

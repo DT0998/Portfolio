@@ -33,20 +33,22 @@ const isDark = useDark();
 </template>
 
 <style lang="scss">
+@import '@/assets/style/variables.scss';
+
 // animation logo
 .logo {
     fill: currentColor;
 
     rect {
         transform: translateY(100%);
-        fill: #75c05e;
+        fill: $mainColor;
         transition: transform .5s ease-in-out;
     }
 
     &:hover {
         rect {
             transform: translateY(0%);
-            fill: #75c05e;
+            fill: $mainColor;
         }
     }
 }

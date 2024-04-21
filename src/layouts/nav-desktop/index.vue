@@ -33,10 +33,11 @@ const isDark = useDark();
 
 
 <style lang="scss">
+@import '@/assets/style/variables.scss';
 .logo-github {
     transition: color 0.6s;
 }
 .logo-github:hover {
-    color: #75c05e;
+    color: $mainColor;
 }
 </style>

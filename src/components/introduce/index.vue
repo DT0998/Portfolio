@@ -1,25 +1,26 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 import { useDark } from "@vueuse/core";
+import { variables } from '@/assets/style/variables';
 const isDark = useDark();
 // dark theme style line
 const darkThemeStyleLine = reactive({
-    background: "color-mix(in lab, oklch(100% 0 0) 30%, transparent)",
+    background: `color-mix(in lab, ${variables.$colorMixDark} 30%, transparent)`,
 })
 
 // white theme style line
 const lightThemeStyleLine = reactive({
-    background: "color-mix(in lab, oklch(0% 0 0) 30%, transparent)",
+    background: `color-mix(in lab, ${variables.$colorMixLight} 30%, transparent)`,
 })
 
 // dark theme style plus
 const darkThemeStylePlus = reactive({
-    color: "oklch(100% 0 0)",
+    color: variables.$colorMixDark,
 })
 
 // white theme style plus
 const lightThemeStylePlus = reactive({
-    color: "oklch(0% 0 0)",
+    color: variables.$colorMixLight,
 })
 
 </script>
@@ -36,11 +37,10 @@ const lightThemeStylePlus = reactive({
                 </div>
             </div>
             <div class="flex items-center h-[42px] md:h-[80px] mt-[5px]">
-                <div class="h-full relative z-[1]" >
+                <div class="h-full relative z-[1]">
                     <div class="introduce w-full absolute top-0 z-[10] w-full h-full"></div>
                     <div class="content-introduce flex items-center w-fit h-full">
-                        <v-icon name="co-plus"
-                        class="opacity-40 mr-[10px] md:w-[64px] md:h-[100px] h-[25px] w-[42px] "
+                        <v-icon name="co-plus" class="opacity-40 mr-[10px] md:w-[64px] md:h-[100px] h-[25px] w-[42px] "
                             :style="[isDark ? darkThemeStylePlus : lightThemeStylePlus]" />
                         <span class="text-bold text-[2.6rem] md:text-[5rem] title-introduce"></span>
                         <!-- <span class="text-bold text-[2.6rem] lg:text-[5rem]">Illustrator</span> -->
@@ -52,23 +52,23 @@ const lightThemeStylePlus = reactive({
 </template>
 
 <style lang="scss">
+@import '@/assets/style/variables.scss';
+
 .line {
     content: "";
 }
 
 .introduce {
-    background: linear-gradient(to left, #75c05e 50%, transparent 50%);
+    background: linear-gradient(to left, $mainColor 50%, transparent 50%);
     background-size: 200% 100%;
-    animation: slideLeftToRight 14s ease infinite;
+    animation: slideLeftToRight 14s ease 5s 1 forwards;
     transition: all 1s ease .4s;
-    animation-delay: 10s;
-    animation-duration: 12s;
 }
 
 .content-introduce {
     animation: show 14s ease infinite;
     transition: all 1s ease .4s;
-    animation-delay: 10s;
+    animation-delay: calc(5s + 14s);
     animation-duration: 13s;
 }
 
@@ -80,7 +80,7 @@ const lightThemeStylePlus = reactive({
     from {
         opacity: 0;
     }
-    
+
     to {
         opacity: 1;
     }

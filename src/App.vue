@@ -18,15 +18,17 @@ useDark({
 </template>
 
 <style lang="scss">
+@import '@/assets/style/variables.scss';
+
 .dark {
   /* dark mode */
-  background: oklch(17.76% 0 0);
-  color: #fff;
+  background: $bgDark;
+  color: $textDark;
 }
 
 .light {
   /* light mode */
-  background: oklch(96.12% 0 0);
-  color: #000;
+  background: $bgLight;
+  color: $textLight;
 }
 </style>
