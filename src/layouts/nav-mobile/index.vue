@@ -41,9 +41,9 @@ const lightThemeStyleMenu = reactive({
             :class="{ 'transform-none': openMenu, 'close-menu': !openMenu }"
             :style="[isDark ? darkThemeStyleNav : lightThemeStyleNav]">
             <ul class="w-full h-full flex items-center justify-center flex-col ">
-                <li class="p-[24px] w-full text-center">Projects</li>
-                <li class="p-[24px] w-full text-center">Details</li>
-                <li class="p-[24px] w-full text-center">Contact</li>
+                <li class="p-[24px] w-full text-center menu-title">Projects</li>
+                <li class="p-[24px] w-full text-center menu-title">Details</li>
+                <li class="p-[24px] w-full text-center menu-title">Contact</li>
             </ul>
             <div
                 class="absolute right-[24px] md:right-[48px] left-[24px] md:left-[48px] bottom-[24px] md:bottom-[16px]">
@@ -71,6 +71,27 @@ const lightThemeStyleMenu = reactive({
 
 <style lang="scss">
 @import '@/assets/style/variables.scss';
+
+.menu-title {
+    border-bottom: 1px solid transparent;
+    border-left: none;
+    transition: all 0.3s;
+
+    @media (min-width:1024px) {
+        border-left: 3px solid transparent;
+        border-bottom: none;
+    }
+}
+
+.menu-title:hover {
+    border-bottom: 3px solid $mainColor;
+    border-left: none;
+
+    @media (min-width:1024px) {
+        border-left: 3px solid $mainColor;
+        border-bottom: none;
+    }
+}
 
 .close-menu {
     transform: translate3d(0, -100%, 0);

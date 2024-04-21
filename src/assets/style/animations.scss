@@ -1,0 +1,39 @@
+@mixin show($fillMode, $duration, $opacityEnd) {
+    @keyframes show {
+        0% {
+            opacity: 0;
+        }
+
+        45% {
+            opacity: 1;
+        }
+
+        70% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: $opacityEnd;
+        }
+    }
+
+    animation: show $duration ease $fillMode;
+}
+
+@mixin slideLeftToRight($fillMode) {
+    @keyframes slideLeftToRight {
+        0% {
+            background-position: right bottom;
+        }
+
+        45% {
+            background-position: left bottom;
+        }
+
+        100% {
+            background-position: none;
+        }
+    }
+
+    animation: slideLeftToRight 5s ease $fillMode;
+}

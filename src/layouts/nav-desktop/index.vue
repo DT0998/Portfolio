@@ -9,13 +9,13 @@ const isDark = useDark();
     <div v-if="!isTablet" class="flex flex-auto justify-center">
         <nav class="flex flex-col justify-between items-center">
             <ul class="flex flex-col">
-                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer">
+                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px]">
                     Projects
                 </li>
-                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer">
+                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px]">
                     Details
                 </li>
-                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer">
+                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px]">
                     Contact
                 </li>
             </ul>
@@ -40,4 +40,5 @@ const isDark = useDark();
 .logo-github:hover {
     color: $mainColor;
 }
+
 </style>
