@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import ButtonDarkmode from "@/components/ButtonDarkmode/index.vue";
 import { useMediaQuery, useDark } from '@vueuse/core';
-import { reactive, ref } from "vue";
+import { reactive, ref, onMounted } from "vue";
 import { variables } from '@/assets/style/variables';
+import AOS from "aos";
+
+onMounted(() => {
+    AOS.init();
+})
+
 const isDark = useDark();
 const isTablet = useMediaQuery('(max-width: 768px)')
 const openMenu = ref(false)

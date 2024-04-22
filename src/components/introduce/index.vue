@@ -48,13 +48,15 @@ onUnmounted(() => {
 
 <template>
     <section class="h-screen flex items-start flex-col justify-center md:p-[64px]">
-        <titleBinary extraClass="text-[1.125rem] opacity-40 md:mb-[32px]" />
+        <titleBinary extraClass="text-[1.125rem] opacity-60 md:mb-[32px] tracking-[.3em] font-medium"
+            title="TRIEU DUONG" />
         <h2 class="w-full">
             <div class="flex items-center h-[42px] md:h-[80px]">
                 <div class="h-full relative z-[1]">
                     <div class="introduce-top w-full absolute top-0 z-[10] w-full h-full"></div>
                     <div class="w-fit h-full flex items-center">
-                        <span class="text-bold text-[2.6rem] md:text-[5rem]  content-introduce-top">Developer</span>
+                        <span
+                            class="text-bold text-[2.6rem] md:text-[5rem] lg:text-[100px] content-introduce-top">Developer</span>
                     </div>
                 </div>
                 <div class="line h-[2px] ml-[20px] w-full" :style="[isDark ? darkThemeStyleLine : lightThemeStyleLine]">
@@ -67,7 +69,7 @@ onUnmounted(() => {
                         <v-icon name="co-plus"
                             class="opacity-40 md:mr-[10px] md:w-[64px] md:h-[100px] h-[25px] w-[42px] "
                             :style="[isDark ? darkThemeStylePlus : lightThemeStylePlus]" />
-                        <span class="text-bold text-[2.6rem] md:text-[5rem]">{{ titleIntroduce }}</span>
+                        <span class="text-bold text-[2.6rem] md:text-[5rem] lg:text-[100px]">{{ titleIntroduce }}</span>
                     </div>
                 </div>
             </div>
@@ -81,17 +83,20 @@ onUnmounted(() => {
 
 .line {
     content: "";
+    transition: all .6s ease .4s;
+    animation-duration: 3s;
+    @include lineLeftToRight(forwards);
 }
 
 .animation-introduce {
     background: linear-gradient(to left, $mainColor 50%, transparent 50%);
     background-size: 200% 100%;
-    transition: all 1s ease .4s;
+    transition: all .6s ease .4s;
     animation-duration: 3s;
 }
 
 .animation-content {
-    transition: all 1s ease .4s;
+    transition: all .6s ease .4s;
     animation-duration: 3s;
     animation-delay: 3s;
 }

@@ -37,3 +37,17 @@
 
     animation: slideLeftToRight 10s ease $fillMode;
 }
+
+@mixin lineLeftToRight($fillMode) {
+    @keyframes lineLeftToRight {
+        0% {
+            width: 0;
+        }
+
+        100% {
+            width: 100%;
+        }
+    }
+
+    animation: lineLeftToRight 10s ease $fillMode;
+}

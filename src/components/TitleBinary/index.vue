@@ -1,24 +1,26 @@
 <script setup lang="ts">
-interface IButtonDarkmodeProps {
+import { ref, onMounted } from 'vue';
+interface ITitleBinaryProps {
     extraClass?: string;
     title?: string;
 }
-const { extraClass, title } = defineProps<IButtonDarkmodeProps>();
+const { extraClass, title } = defineProps<ITitleBinaryProps>();
+const characterTitle = ref<string[]>([]);
+const handleConvertCharacter = () => {
+    if (title) {
+        characterTitle.value = title.split('');
+    } else {
+        characterTitle.value = [];
+    }
+};
+
+onMounted(() => {
+    handleConvertCharacter();
+});
 </script>
-<!-- text-[1.125rem] opacity-40 md:mb-[32px]  -->
 
 <template>
-    <span class="font-medium" :class="[extraClass]">
-        <span>T</span>
-        <span>R</span>
-        <span>I</span>
-        <span>E</span>
-        <span>U</span>
-        <span></span>
-        <span>D</span>
-        <span>U</span>
-        <span>O</span>
-        <span>N</span>
-        <span>G</span>
+    <span :class="[extraClass]">
+        <span v-for="(character, index) in characterTitle" :key="index">{{ character }}</span>
     </span>
 </template>
