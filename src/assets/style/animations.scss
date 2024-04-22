@@ -8,7 +8,7 @@
             opacity: 1;
         }
 
-        70% {
+        90% {
             opacity: 1;
         }
 
@@ -35,5 +35,5 @@
         }
     }
 
-    animation: slideLeftToRight 5s ease $fillMode;
+    animation: slideLeftToRight 10s ease $fillMode;
 }

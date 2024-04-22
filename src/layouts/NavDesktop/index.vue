@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ButtonDarkmode from "@/components/button-darkmode/index.vue";
-import { useMediaQuery,useDark } from '@vueuse/core';
+import ButtonDarkmode from "@/components/ButtonDarkmode/index.vue";
+import { useMediaQuery, useDark } from '@vueuse/core';
 const isTablet = useMediaQuery('(max-width: 768px)')
 const isDark = useDark();
 </script>
@@ -8,7 +8,7 @@ const isDark = useDark();
 <template>
     <div v-if="!isTablet" class="flex flex-auto justify-center">
         <nav class="flex flex-col justify-between items-center">
-            <ul class="flex flex-col">
+            <ul class="flex flex-col font-medium">
                 <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px]">
                     Projects
                 </li>
@@ -34,11 +34,12 @@ const isDark = useDark();
 
 <style lang="scss">
 @import '@/assets/style/variables.scss';
+
 .logo-github {
     transition: color 0.6s;
 }
+
 .logo-github:hover {
     color: $mainColor;
 }
-
 </style>

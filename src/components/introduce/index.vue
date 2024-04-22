@@ -1,7 +1,12 @@
 <script setup lang="ts">
-import { reactive } from "vue";
+import { reactive, ref, onMounted, onUnmounted } from "vue";
 import { useDark } from "@vueuse/core";
 import { variables } from '@/assets/style/variables';
+import titleBinary from "@/components/TitleBinary/index.vue";
+const titlesIntroduce = ["Illustrator", "Animator"];
+const titleIntroduce = ref(titlesIntroduce[0]);
+let titleIntroduceIndex = 0;
+let intervalIdTitleIntroduce: number | undefined;
 const isDark = useDark();
 // dark theme style line
 const darkThemeStyleLine = reactive({
@@ -23,13 +28,27 @@ const lightThemeStylePlus = reactive({
     color: variables.$colorMixLight,
 })
 
+// change title introduce
+const changeTitleIntroduce = () => {
+    // Increment the title index
+    titleIntroduceIndex = (titleIntroduceIndex + 1) % titlesIntroduce.length;
+
+    // Update the current title based on the title index
+    titleIntroduce.value = titlesIntroduce[titleIntroduceIndex];
+};
+
+onMounted(() => {
+    intervalIdTitleIntroduce = setInterval(changeTitleIntroduce, 10000);
+})
+
+onUnmounted(() => {
+    clearInterval(intervalIdTitleIntroduce);
+});
 </script>
 
 <template>
     <section class="h-screen flex items-start flex-col justify-center md:p-[64px]">
-        <span class="text-[1.125rem] opacity-40 mb-[32px]">
-            TRIEU DUONG
-        </span>
+        <titleBinary extraClass="text-[1.125rem] opacity-40 md:mb-[32px]" />
         <h2 class="w-full">
             <div class="flex items-center h-[42px] md:h-[80px]">
                 <div class="h-full relative z-[1]">
@@ -45,10 +64,10 @@ const lightThemeStylePlus = reactive({
                 <div class="h-full relative z-[1]">
                     <div class="introduce w-full absolute top-0 z-[10] w-full h-full"></div>
                     <div class="content-introduce flex items-center w-fit h-full">
-                        <v-icon name="co-plus" class="opacity-40 mr-[10px] md:w-[64px] md:h-[100px] h-[25px] w-[42px] "
+                        <v-icon name="co-plus"
+                            class="opacity-40 md:mr-[10px] md:w-[64px] md:h-[100px] h-[25px] w-[42px] "
                             :style="[isDark ? darkThemeStylePlus : lightThemeStylePlus]" />
-                        <span class="text-bold text-[2.6rem] md:text-[5rem] title-introduce"></span>
-                        <!-- <span class="text-bold text-[2.6rem] lg:text-[5rem]">Illustrator</span> -->
+                        <span class="text-bold text-[2.6rem] md:text-[5rem]">{{ titleIntroduce }}</span>
                     </div>
                 </div>
             </div>
@@ -94,10 +113,6 @@ const lightThemeStylePlus = reactive({
 
 .content-introduce {
     @extend .animation-content;
-    @include show(infinite, 5s, 0);
-}
-
-.title-introduce::after {
-    content: "Illustrator";
+    @include show(infinite, 10s, 0);
 }
 </style>

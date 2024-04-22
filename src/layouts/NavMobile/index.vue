@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ButtonDarkmode from "@/components/button-darkmode/index.vue";
+import ButtonDarkmode from "@/components/ButtonDarkmode/index.vue";
 import { useMediaQuery, useDark } from '@vueuse/core';
 import { reactive, ref } from "vue";
 import { variables } from '@/assets/style/variables';

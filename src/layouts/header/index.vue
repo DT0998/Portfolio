@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import NavMobile from "@/layouts/nav-mobile/index.vue";
-import NavDesktop from "@/layouts/nav-desktop/index.vue";
-import SvgTumblr from "@/components/svg-tumblr/index.vue";
+import NavMobile from "@/layouts/NavMobile/index.vue";
+import NavDesktop from "@/layouts/NavDesktop/index.vue";
+import SvgTumblr from "@/components/SvgTumblr/index.vue";
 </script>
 
 <template>
