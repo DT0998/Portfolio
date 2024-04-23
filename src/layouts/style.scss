@@ -1,0 +1,24 @@
+@import '@/assets/style/variables.scss';
+
+// .menu-line {
+//     border-bottom: 1px solid transparent;
+//     border-left: none;
+//     transition: all 0.3s;
+    
+//     @media (min-width:1024px) {
+//         border-left: 3px solid transparent;
+//         border-bottom: none;
+//     }
+// }
+
+.menu-line {
+    border-bottom: 3px solid $mainColor;
+    border-left: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    @media (min-width:1024px) {
+        border-left: 3px solid $mainColor;
+        border-bottom: none;
+    }
+}

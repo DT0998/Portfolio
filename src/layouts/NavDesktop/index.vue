@@ -9,15 +9,30 @@ const isDark = useDark();
     <div v-if="!isTablet" class="flex flex-auto justify-center">
         <nav class="flex flex-col justify-between items-center">
             <ul class="flex flex-col font-medium">
-                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px]">
-                    Projects
-                </li>
-                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px]">
-                    Details
-                </li>
-                <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px]">
-                    Contact
-                </li>
+                <router-link to="/">
+                    <li
+                        class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px] relative flex justify-center">
+                        Projects
+                        <div class="menu-line absolute max-w-[192px] h-full">
+                        </div>
+                    </li>
+                </router-link>
+                <router-link to="/">
+                    <li
+                        class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px] relative flex justify-center">
+                        Details
+                        <div class="menu-line absolute max-w-[192px] h-full">
+                        </div>
+                    </li>
+                </router-link>
+                <router-link to="/contact">
+                    <li
+                        class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px] relative flex justify-center">
+                        Contact
+                        <div class="menu-line absolute max-w-[192px] h-full">
+                        </div>
+                    </li>
+                </router-link>
             </ul>
             <ul>
                 <a href="https://github.com/DT0998" target="_blank">
@@ -34,6 +49,7 @@ const isDark = useDark();
 
 <style lang="scss">
 @import '@/assets/style/variables.scss';
+@import '@/layouts/style.scss';
 
 .logo-github {
     transition: color 0.6s;

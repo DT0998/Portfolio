@@ -26,7 +26,7 @@ const lightThemeStyleBtn = reactive({
     <div class="flex flex-col-reverse my-[64px] gap-[48px]" :class="[extraClass]">
         <div class="flex flex-col items-center">
             <div class="max-w-[480px]">
-                <NotchComponent :title="id" extraClassLine="w-[90px]" extraClassNotch="w-[64px]" />
+                <NotchComponent :title="id" extraClassLine="max-w-[90px]" extraClassNotch="max-w-[64px]" />
                 <h2 class="text-[24px] lg:text-[36px] mb-[24px] font-bold" data-aos="fade-up">{{ title }}</h2>
                 <p class="lg:text-[18px] mb-[24px] opacity-60" data-aos="fade-up">{{ desc }}</p>
                 <div data-aos="fade-up">

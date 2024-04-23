@@ -41,9 +41,21 @@ const lightThemeStyleMenu = reactive({
             :class="{ 'transform-none': openMenu, 'close-menu': !openMenu }"
             :style="[isDark ? darkThemeStyleNav : lightThemeStyleNav]">
             <ul class="w-full h-full flex items-center justify-center flex-col" data-aos="fade-up">
-                <li class="p-[24px] w-full text-center menu-title">Projects</li>
-                <li class="p-[24px] w-full text-center menu-title">Details</li>
-                <li class="p-[24px] w-full text-center menu-title">Contact</li>
+                <li class="p-[24px] w-full text-center relative flex justify-center">
+                    Projects
+                    <div class="menu-line absolute w-[192px]">
+                    </div>
+                </li>
+                <li class="p-[24px] w-full text-center relative flex justify-center">
+                    Details
+                    <div class="menu-line absolute w-[192px]">
+                    </div>
+                </li>
+                <li class="p-[24px] w-full text-center relative flex justify-center">
+                    Contact
+                    <div class="menu-line absolute w-[192px]">
+                    </div>
+                </li>
             </ul>
             <div
                 class="absolute right-[24px] md:right-[48px] left-[24px] md:left-[48px] bottom-[24px] md:bottom-[16px]">
@@ -71,28 +83,7 @@ const lightThemeStyleMenu = reactive({
 
 <style lang="scss">
 @import '@/assets/style/variables.scss';
-
-.menu-title {
-    border-bottom: 1px solid transparent;
-    border-left: none;
-    transition: all 0.3s;
-    width: fit-content;
-
-    @media (min-width:1024px) {
-        border-left: 3px solid transparent;
-        border-bottom: none;
-    }
-}
-
-.menu-title:hover {
-    border-bottom: 3px solid $mainColor;
-    border-left: none;
-
-    @media (min-width:1024px) {
-        border-left: 3px solid $mainColor;
-        border-bottom: none;
-    }
-}
+@import '@/layouts/style.scss';
 
 .close-menu {
     transform: translate3d(0, -100%, 0);

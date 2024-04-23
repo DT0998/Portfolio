@@ -47,12 +47,16 @@ const lightThemeStyleNotchText = reactive({
 @import '@/assets/style/animations.scss';
 
 .line-project {
+    transition: all 0.6s ease;
     content: "";
+    @include lineLeftToRight(forwards);
 }
 
 .notch-project {
+    transition: all 0.6s ease;
     content: "";
     transform: translateX(-4px);
     clip-path: polygon(0 -1px, 100% -1px, calc(100% - 10px) 100%, 10px 100%);
+    @include lineLeftToRight(forwards);
 }
 </style>

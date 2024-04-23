@@ -24,14 +24,15 @@ const lightThemeStyleSendMe = reactive({
          <div class="mb-[32px]">
             <p>I'm Trieu</p>
          </div>
-         <div class="cursor-pointer flex items-center">
-            <v-icon name="io-send" class="mr-[10px] h-[24px] w-[24px]"
-               :style="[isDark ? darkThemeStyleSendMe : lightThemeStyleSendMe]" />
-            <span class="text-[18px]">Send me a message</span>
-         </div>
+         <router-link to="/contact">
+            <div class="flex items-center" :style="[isDark ? darkThemeStyleSendMe : lightThemeStyleSendMe]">
+               <v-icon name="io-send" class="mr-[10px] h-[24px] w-[24px]" />
+               <span class="text-[18px]">Send me a message</span>
+            </div>
+         </router-link>
       </div>
       <div class="w-full h-full">
-         <NotchComponent title="About me" extraClassLine="w-[90px]" extraClassNotch="w-[64px]"
+         <NotchComponent title="About me" extraClassLine="max-w-[90px]" extraClassNotch="max-w-[64px]"
             extraClassContainer="mt-[30px] xl:mt-[220px] mb-[40px]" />
          <div class="h-full relative z-[1]">
             <div class="avatar w-full absolute top-0 z-[10] w-full h-full animation-slideltr"></div>
