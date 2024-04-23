@@ -1,5 +1,7 @@
-@mixin show($fillMode, $duration, $opacityEnd) {
-    @keyframes show {
+@import '@/assets/style/variables.scss';
+
+@mixin showTop($fillMode, $duration) {
+    @keyframes showTop {
         0% {
             opacity: 0;
         }
@@ -13,12 +15,36 @@
         }
 
         100% {
-            opacity: $opacityEnd;
+            opacity: 1;
         }
     }
 
-    animation: show $duration ease $fillMode;
+    animation: showTop $duration ease $fillMode;
 }
+
+@mixin showBottom($fillMode, $duration) {
+    @keyframes showBottom {
+        0% {
+            opacity: 0;
+        }
+
+        45% {
+            opacity: 1;
+        }
+
+        90% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+    animation: showBottom $duration ease $fillMode;
+}
+
+
 
 @mixin slideLeftToRight($fillMode) {
     @keyframes slideLeftToRight {
@@ -35,6 +61,7 @@
         }
     }
 
+
     animation: slideLeftToRight 10s ease $fillMode;
 }
 
@@ -50,4 +77,16 @@
     }
 
     animation: lineLeftToRight 10s ease $fillMode;
+}
+
+.animation-slideltr {
+    background: linear-gradient(to left, $mainColor 50%, transparent 50%);
+    background-size: 200% 100%;
+    transition: all .6s ease .4s;
+}
+
+.animation-content {
+    transition: all .6s ease .4s;
+    animation-duration: 3s;
+    animation-delay: 3s;
 }

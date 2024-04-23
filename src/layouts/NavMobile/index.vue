@@ -1,14 +1,8 @@
 <script setup lang="ts">
 import ButtonDarkmode from "@/components/ButtonDarkmode/index.vue";
 import { useMediaQuery, useDark } from '@vueuse/core';
-import { reactive, ref, onMounted } from "vue";
+import { reactive, ref } from "vue";
 import { variables } from '@/assets/style/variables';
-import AOS from "aos";
-
-onMounted(() => {
-    AOS.init();
-})
-
 const isDark = useDark();
 const isTablet = useMediaQuery('(max-width: 768px)')
 const openMenu = ref(false)
@@ -46,7 +40,7 @@ const lightThemeStyleMenu = reactive({
         <nav class="flex flex-col justify-between items-center flex-auto fixed z-[3] w-full h-full overlay"
             :class="{ 'transform-none': openMenu, 'close-menu': !openMenu }"
             :style="[isDark ? darkThemeStyleNav : lightThemeStyleNav]">
-            <ul class="w-full h-full flex items-center justify-center flex-col ">
+            <ul class="w-full h-full flex items-center justify-center flex-col" data-aos="fade-up">
                 <li class="p-[24px] w-full text-center menu-title">Projects</li>
                 <li class="p-[24px] w-full text-center menu-title">Details</li>
                 <li class="p-[24px] w-full text-center menu-title">Contact</li>
@@ -82,6 +76,7 @@ const lightThemeStyleMenu = reactive({
     border-bottom: 1px solid transparent;
     border-left: none;
     transition: all 0.3s;
+    width: fit-content;
 
     @media (min-width:1024px) {
         border-left: 3px solid transparent;

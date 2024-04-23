@@ -52,8 +52,10 @@ onUnmounted(() => {
             title="TRIEU DUONG" />
         <h2 class="w-full">
             <div class="flex items-center h-[42px] md:h-[80px]">
-                <div class="h-full relative z-[1]">
-                    <div class="introduce-top w-full absolute top-0 z-[10] w-full h-full"></div>
+                <div class="h-full relative z-[1] animation-content">
+                    <div
+                        class="introduce-top w-full absolute top-0 z-[10] w-full h-full animation-slideltr">
+                    </div>
                     <div class="w-fit h-full flex items-center">
                         <span
                             class="text-bold text-[2.6rem] md:text-[5rem] lg:text-[100px] content-introduce-top">Developer</span>
@@ -63,9 +65,9 @@ onUnmounted(() => {
                 </div>
             </div>
             <div class="flex items-center h-[42px] md:h-[80px] mt-[5px]">
-                <div class="h-full relative z-[1]">
-                    <div class="introduce w-full absolute top-0 z-[10] w-full h-full"></div>
-                    <div class="content-introduce flex items-center w-fit h-full">
+                <div class="h-full relative z-[1] animation-content">
+                    <div class="introduce w-full absolute top-0 z-[10] w-full h-full animation-slideltr"></div>
+                    <div class="content-introduce flex items-center w-fit h-full ">
                         <v-icon name="co-plus"
                             class="opacity-40 md:mr-[10px] md:w-[64px] md:h-[100px] h-[25px] w-[42px] "
                             :style="[isDark ? darkThemeStylePlus : lightThemeStylePlus]" />
@@ -78,7 +80,6 @@ onUnmounted(() => {
 </template>
 
 <style lang="scss">
-@import '@/assets/style/variables.scss';
 @import '@/assets/style/animations.scss';
 
 .line {
@@ -88,36 +89,19 @@ onUnmounted(() => {
     @include lineLeftToRight(forwards);
 }
 
-.animation-introduce {
-    background: linear-gradient(to left, $mainColor 50%, transparent 50%);
-    background-size: 200% 100%;
-    transition: all .6s ease .4s;
-    animation-duration: 3s;
-}
-
-.animation-content {
-    transition: all .6s ease .4s;
-    animation-duration: 3s;
-    animation-delay: 3s;
-}
-
 .introduce-top {
-    @extend .animation-introduce;
     @include slideLeftToRight(forwards);
 }
 
 .content-introduce-top {
-    @extend .animation-content;
-    @include show(none, .8s, 1);
+    @include showTop(forwards, 10s);
 }
 
 .introduce {
-    @extend .animation-introduce;
     @include slideLeftToRight(infinite);
 }
 
 .content-introduce {
-    @extend .animation-content;
-    @include show(infinite, 10s, 0);
+    @include showBottom(infinite, 10s);
 }
 </style>

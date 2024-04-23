@@ -44,6 +44,8 @@ const lightThemeStyleNotchText = reactive({
 
 
 <style lang="scss">
+@import '@/assets/style/animations.scss';
+
 .line-project {
     content: "";
 }

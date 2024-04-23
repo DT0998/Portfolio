@@ -2,21 +2,54 @@
 import titleBinary from '@/components/TitleBinary/index.vue';
 import myAvatar from '@/assets/images/Details/myAvatar.jpg';
 import NotchComponent from '@/components/Notch/index.vue';
+import { variables } from '@/assets/style/variables';
+import { useDark } from "@vueuse/core";
+import { reactive } from "vue";
+
+const isDark = useDark();
+// dark theme style notch line
+const darkThemeStyleSendMe = reactive({
+   color: `${variables.$mainColor}`,
+})
+
+// white theme style notch line
+const lightThemeStyleSendMe = reactive({
+   color: `${variables.$colorMixLight}`,
+})
 </script>
 <template>
    <div class="flex my-[40px] flex-col xl:flex-row gap-[48px]">
-      <div class="w-full">
+      <div class="w-full h-full">
          <titleBinary extraClass="text-[36px] md:mb-[32px] font-bold" title="Hi there" />
-         <div>
-            <span>Send me a message</span>
+         <div class="mb-[32px]">
+            <p>I'm Trieu</p>
+         </div>
+         <div class="cursor-pointer flex items-center">
+            <v-icon name="io-send" class="mr-[10px] h-[24px] w-[24px]"
+               :style="[isDark ? darkThemeStyleSendMe : lightThemeStyleSendMe]" />
+            <span class="text-[18px]">Send me a message</span>
          </div>
       </div>
-      <div class="w-full">
+      <div class="w-full h-full">
          <NotchComponent title="About me" extraClassLine="w-[90px]" extraClassNotch="w-[64px]"
             extraClassContainer="mt-[30px] xl:mt-[220px] mb-[40px]" />
-         <img :src="myAvatar" alt="its me" />
+         <div class="h-full relative z-[1]">
+            <div class="avatar w-full absolute top-0 z-[10] w-full h-full animation-slideltr"></div>
+            <img :src="myAvatar" alt="its me" class="avatar-img" />
+         </div>
       </div>
    </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+@import '@/assets/style/animations.scss';
+
+.avatar {
+   @include slideLeftToRight(forwards);
+}
+
+.avatar-img {
+   transition: all .6s ease .4s;
+   @include showTop(forwards, 10s);
+}
+</style>

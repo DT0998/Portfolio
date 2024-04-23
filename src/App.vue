@@ -2,10 +2,16 @@
 import { RouterView } from 'vue-router';
 import Layout from './layouts/index.vue';
 import { useDark } from '@vueuse/core/index.cjs';
+import AOS from "aos";
+import { onMounted } from "vue";
+
 useDark({
   selector: 'body',
   valueDark: 'dark',
   valueLight: 'light'
+})
+onMounted(() => {
+  AOS.init();
 })
 </script>
 

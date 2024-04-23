@@ -27,18 +27,20 @@ const lightThemeStyleBtn = reactive({
         <div class="flex flex-col items-center">
             <div class="max-w-[480px]">
                 <NotchComponent :title="id" extraClassLine="w-[90px]" extraClassNotch="w-[64px]" />
-                <h2 class="text-[24px] lg:text-[36px] mb-[24px] font-bold">{{ title }}</h2>
-                <p class="lg:text-[18px] mb-[24px] opacity-60">{{ desc }}</p>
-                <a class="flex items-center w-fit py-[10px] px-[24px] btn-viewproject cursor-pointer"
-                    :style="[isDark ? darkThemeStyleBtn : lightThemeStyleBtn]"
-                    :class="{ 'text-black': isDark, 'text-white': !isDark }" @mouseleave="isHoverBtn = false"
-                    @mouseover="isHoverBtn = true">
-                    <span class="text-[18px]">
-                        View Project
-                    </span>
-                    <v-icon name="bi-arrow-right" width="24" height="24" class="ml-[4px] btn-icon"
-                        :class="{ 'translate-x-1': isHoverBtn, 'translate-x-0': !isHoverBtn }" />
-                </a>
+                <h2 class="text-[24px] lg:text-[36px] mb-[24px] font-bold" data-aos="fade-up">{{ title }}</h2>
+                <p class="lg:text-[18px] mb-[24px] opacity-60" data-aos="fade-up">{{ desc }}</p>
+                <div data-aos="fade-up">
+                    <a class="flex items-center w-fit py-[10px] px-[24px] btn-viewproject cursor-pointer"
+                        :style="[isDark ? darkThemeStyleBtn : lightThemeStyleBtn]"
+                        :class="{ 'text-black': isDark, 'text-white': !isDark }" @mouseleave="isHoverBtn = false"
+                        @mouseover="isHoverBtn = true" >
+                        <span class="text-[18px]">
+                            View Project
+                        </span>
+                        <v-icon name="bi-arrow-right" width="24" height="24" class="ml-[4px] btn-icon"
+                            :class="{ 'translate-x-1': isHoverBtn, 'translate-x-0': !isHoverBtn }" />
+                    </a>
+                </div>
             </div>
         </div>
         <div>Model 3d</div>
