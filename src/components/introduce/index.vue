@@ -52,24 +52,25 @@ onUnmounted(() => {
             title="TRIEU DUONG" />
         <h2 class="w-full">
             <div class="flex items-center h-[42px] md:h-[80px]">
-                <div class="h-full relative z-[1] animation-content">
-                    <div
-                        class="introduce-top w-full absolute top-0 z-[10] w-full h-full animation-slideltr">
-                    </div>
-                    <div class="w-fit h-full flex items-center">
-                        <span
-                            class="text-bold text-[2.6rem] md:text-[5rem] lg:text-[100px] content-introduce-top">Developer</span>
+                <div class="h-full">
+                    <div class="w-full h-full flex items-center animation-content overflow-hidden relative z-[1]">
+                        <div class="introduce-top w-full absolute top-0 z-[10] w-full h-full animation-slideltr">
+                        </div>
+                        <span class="text-bold text-[2.6rem] md:text-[5rem] lg:text-[100px] content-introduce-top">
+                            Developer
+                        </span>
                     </div>
                 </div>
-                <div class="line h-[2px] ml-[20px] w-full" :style="[isDark ? darkThemeStyleLine : lightThemeStyleLine]">
-                </div>
+                <span class="line h-[2px] ml-[20px] w-full"
+                    :style="[isDark ? darkThemeStyleLine : lightThemeStyleLine]">
+                </span>
             </div>
             <div class="flex items-center h-[42px] md:h-[80px] mt-[5px]">
-                <div class="h-full relative z-[1] animation-content">
+                <div class="h-full relative z-[1] overflow-hidden">
                     <div class="introduce w-full absolute top-0 z-[10] w-full h-full animation-slideltr"></div>
-                    <div class="content-introduce flex items-center w-fit h-full ">
+                    <div class="flex items-center w-fit h-full animation-content content-introduce">
                         <v-icon name="co-plus"
-                            class="opacity-40 md:mr-[10px] md:w-[64px] md:h-[100px] h-[25px] w-[42px] "
+                            class="opacity-40 md:mr-[10px] md:w-[64px] md:h-[100px] h-[25px] w-[42px]"
                             :style="[isDark ? darkThemeStylePlus : lightThemeStylePlus]" />
                         <span class="text-bold text-[2.6rem] md:text-[5rem] lg:text-[100px]">{{ titleIntroduce }}</span>
                     </div>
@@ -85,23 +86,22 @@ onUnmounted(() => {
 .line {
     content: "";
     transition: all .6s ease .4s;
-    animation-duration: 3s;
     @include lineLeftToRight(forwards);
 }
 
 .introduce-top {
-    @include slideLeftToRight(forwards);
+    @include slideBackground(forwards);
 }
 
 .content-introduce-top {
-    @include showTop(forwards, 10s);
+    @include showTop(forwards);
 }
 
 .introduce {
-    @include slideLeftToRight(infinite);
+    @include slideBackground(infinite);
 }
 
 .content-introduce {
-    @include showBottom(infinite, 10s);
+    @include showBottom(infinite);
 }
 </style>

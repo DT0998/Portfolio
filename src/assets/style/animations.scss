@@ -1,16 +1,20 @@
 @import '@/assets/style/variables.scss';
 
-@mixin showTop($fillMode, $duration) {
+@mixin showTop($iterationCount) {
     @keyframes showTop {
         0% {
             opacity: 0;
         }
 
-        45% {
-            opacity: 1;
+        25% {
+            opacity: 0;
         }
 
-        90% {
+        50% {
+            opacity: 0;
+        }
+
+        75% {
             opacity: 1;
         }
 
@@ -19,20 +23,24 @@
         }
     }
 
-    animation: showTop $duration ease $fillMode;
+    animation: showTop 10s ease $iterationCount;
 }
 
-@mixin showBottom($fillMode, $duration) {
+@mixin showBottom($iterationCount) {
     @keyframes showBottom {
         0% {
             opacity: 0;
         }
 
-        45% {
-            opacity: 1;
+        25% {
+            opacity: 0;
         }
 
-        90% {
+        50% {
+            opacity: 0;
+        }
+
+        75% {
             opacity: 1;
         }
 
@@ -41,31 +49,28 @@
         }
     }
 
-    animation: showBottom $duration ease $fillMode;
+    animation: showBottom 10s ease $iterationCount;
 }
 
-
-
-@mixin slideLeftToRight($fillMode) {
-    @keyframes slideLeftToRight {
+@mixin slideBackground($iterationCount) {
+    @keyframes slideBackground {
         0% {
-            background-position: right bottom;
+            transform: translateX(-100%);
         }
 
-        45% {
-            background-position: left bottom;
+        75%{
+            transform: translateX(120%);
         }
 
         100% {
-            background-position: none;
+            transform: translateX(120%);
         }
     }
 
-
-    animation: slideLeftToRight 10s ease $fillMode;
+    animation: slideBackground 10s ease $iterationCount;
 }
 
-@mixin lineLeftToRight($fillMode) {
+@mixin lineLeftToRight($iterationCount) {
     @keyframes lineLeftToRight {
         0% {
             width: 0;
@@ -76,17 +81,14 @@
         }
     }
 
-    animation: lineLeftToRight 10s ease $fillMode;
+    animation: lineLeftToRight 10s ease $iterationCount;
 }
 
 .animation-slideltr {
-    background: linear-gradient(to left, $mainColor 50%, transparent 50%);
-    background-size: 200% 100%;
+    background: $mainColor;
     transition: all .6s ease .4s;
 }
 
 .animation-content {
     transition: all .6s ease .4s;
-    animation-duration: 3s;
-    animation-delay: 3s;
 }
