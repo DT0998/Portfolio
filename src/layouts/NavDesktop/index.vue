@@ -1,38 +1,27 @@
 <script setup lang="ts">
 import ButtonDarkmode from "@/components/ButtonDarkmode/index.vue";
+import { ref } from 'vue';
 import { useMediaQuery, useDark } from '@vueuse/core';
+import { dataMenuList } from '@/utils/data/menu';
 const isTablet = useMediaQuery('(max-width: 768px)')
 const isDark = useDark();
+const isHoverMenu = ref(0);
 </script>
 
 <template>
     <div v-if="!isTablet" class="flex flex-auto justify-center">
         <nav class="flex flex-col justify-between items-center">
             <ul class="flex flex-col font-medium">
-                <router-link to="/">
-                    <li
-                        class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px] relative flex justify-center">
-                        Projects
-                        <div class="menu-line absolute max-w-[192px] h-full">
+                <li :key="menu.id"
+                    class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px] relative flex justify-center overflow-hidden"
+                    @mouseleave="isHoverMenu = 0" @mouseover="isHoverMenu = menu.id" v-for="menu of dataMenuList">
+                    <router-link :to="menu.path">
+                        {{ menu.name }}
+                        <div class="menu-line absolute max-w-[192px] h-full"
+                            :class="{ 'menu-active-desktop': isHoverMenu === menu.id, 'menu-deactive-desktop': isHoverMenu !== menu.id }">
                         </div>
-                    </li>
-                </router-link>
-                <router-link to="/">
-                    <li
-                        class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px] relative flex justify-center">
-                        Details
-                        <div class="menu-line absolute max-w-[192px] h-full">
-                        </div>
-                    </li>
-                </router-link>
-                <router-link to="/contact">
-                    <li
-                        class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px] relative flex justify-center">
-                        Contact
-                        <div class="menu-line absolute max-w-[192px] h-full">
-                        </div>
-                    </li>
-                </router-link>
+                    </router-link>
+                </li>
             </ul>
             <ul>
                 <a href="https://github.com/DT0998" target="_blank">

@@ -38,7 +38,7 @@ const changeTitleIntroduce = () => {
 };
 
 onMounted(() => {
-    intervalIdTitleIntroduce = setInterval(changeTitleIntroduce, 10000);
+    intervalIdTitleIntroduce = setInterval(changeTitleIntroduce, 5000);
 })
 
 onUnmounted(() => {

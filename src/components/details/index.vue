@@ -21,7 +21,7 @@ const lightThemeStyleSendMe = reactive({
    <div class="flex my-[40px] flex-col xl:flex-row gap-[48px]">
       <div class="w-full h-full">
          <titleBinary extraClass="text-[36px] md:mb-[32px] font-bold" title="Hi there" />
-         <div class="mb-[32px]">
+         <div class="mb-[32px]" data-aos="zoom-in-up">
             <p>I'm Trieu</p>
          </div>
          <router-link to="/contact">

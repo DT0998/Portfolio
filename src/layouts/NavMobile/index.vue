@@ -3,10 +3,13 @@ import ButtonDarkmode from "@/components/ButtonDarkmode/index.vue";
 import { useMediaQuery, useDark } from '@vueuse/core';
 import { reactive, ref } from "vue";
 import { variables } from '@/assets/style/variables';
+import { dataMenuList } from '@/utils/data/menu';
 const isDark = useDark();
 const isTablet = useMediaQuery('(max-width: 768px)')
 const openMenu = ref(false)
 const isHover = ref(false);
+const isHoverMenu = ref(0);
+const isActiveLinkMenu = ref(false);
 const toggleMenu = () => {
     openMenu.value = !openMenu.value
 }
@@ -41,20 +44,14 @@ const lightThemeStyleMenu = reactive({
             :class="{ 'transform-none': openMenu, 'close-menu': !openMenu }"
             :style="[isDark ? darkThemeStyleNav : lightThemeStyleNav]">
             <ul class="w-full h-full flex items-center justify-center flex-col" data-aos="fade-up">
-                <li class="p-[24px] w-full text-center relative flex justify-center">
-                    Projects
-                    <div class="menu-line absolute w-[192px]">
-                    </div>
-                </li>
-                <li class="p-[24px] w-full text-center relative flex justify-center">
-                    Details
-                    <div class="menu-line absolute w-[192px]">
-                    </div>
-                </li>
-                <li class="p-[24px] w-full text-center relative flex justify-center">
-                    Contact
-                    <div class="menu-line absolute w-[192px]">
-                    </div>
+                <li class="p-[24px] text-center flex justify-center relative overflow-hidden w-[192px] " :key="menu.id"
+                    @mouseleave="isHoverMenu = 0" @mouseover="isHoverMenu = menu.id" v-for="menu of dataMenuList">
+                    <router-link :to="menu.path">
+                        {{ menu.name }}
+                        <div class="menu-line absolute w-full"
+                            :class="{ 'menu-active-mobile': isHoverMenu === menu.id, 'menu-deactive-mobile': isHoverMenu !== menu.id }">
+                        </div>
+                    </router-link>
                 </li>
             </ul>
             <div
