@@ -8,7 +8,7 @@ interface IButtonDarkmodeProps {
 const { extraClass } = defineProps<IButtonDarkmodeProps>();
 const isDark = useDark();
 const toggleDarkmode = useToggle(isDark);
-const isHover = ref(false);
+const isHoverBtnDarkmode = ref(false);
 
 // dark theme style button
 const darkThemeStyleBtn = reactive({
@@ -25,8 +25,8 @@ const lightThemeStyleBtn = reactive({
 
 <template>
     <div :class="[extraClass]" class="p-[8px] h-[50px] cursor-pointer" @click="toggleDarkmode()"
-        @mouseleave="isHover = false" @mouseover="isHover = true"
-        :style="[isHover && (isDark ? darkThemeStyleBtn : lightThemeStyleBtn)]">
+        @mouseleave="isHoverBtnDarkmode = false" @mouseover="isHoverBtnDarkmode = true"
+        :style="[isHoverBtnDarkmode && (isDark ? darkThemeStyleBtn : lightThemeStyleBtn)]">
         <!-- button dark mode -->
         <button class="scale-75 toggle-mode"
             :class="{ 'toggle-darkmode': isDark, 'toggle-lightmode': !isDark }"></button>

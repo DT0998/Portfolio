@@ -23,17 +23,21 @@ const lightThemeStyleBtn = reactive({
 })
 </script>
 <template>
-    <div class="flex flex-col-reverse my-[64px] gap-[48px]" :class="[extraClass]">
+    <div class="flex flex-col-reverse my-[64px] gap-[48px] px-[10px]" :class="[extraClass]">
         <div class="flex flex-col items-center">
             <div class="max-w-[480px]">
                 <NotchComponent :title="id" extraClassLine="max-w-[90px]" extraClassNotch="max-w-[64px]" />
                 <h2 class="text-[24px] lg:text-[36px] mb-[24px] font-bold" data-aos="fade-up">{{ title }}</h2>
-                <p class="lg:text-[18px] mb-[24px] opacity-60" data-aos="fade-up">{{ desc }}</p>
+                <p data-aos="fade-up">
+                    <span class="opacity-60 lg:text-[18px] mb-[24px] block">
+                        {{ desc }}
+                    </span>
+                </p>
                 <div data-aos="fade-up">
                     <a class="flex items-center w-fit py-[10px] px-[24px] btn-viewproject cursor-pointer"
                         :style="[isDark ? darkThemeStyleBtn : lightThemeStyleBtn]"
                         :class="{ 'text-black': isDark, 'text-white': !isDark }" @mouseleave="isHoverBtn = false"
-                        @mouseover="isHoverBtn = true" >
+                        @mouseover="isHoverBtn = true">
                         <span class="text-[18px]">
                             View Project
                         </span>

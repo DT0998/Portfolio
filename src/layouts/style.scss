@@ -15,17 +15,17 @@
 }
 
 .menu-active-desktop {
-    transform: translate(-50%, -50%) translateY(0);
+    @include menuDeactiveDesktopActive();
 }
 
 .menu-deactive-desktop {
-    @include menuDeactiveDesktop();
+    @include menuDeactiveDesktopDeactive();
 }
 
 .menu-active-mobile {
-    transform: translate(-50%, -50%) translateX(0);
+    @include menuDeactiveMobileActive();
 }
 
 .menu-deactive-mobile {
-    @include menuDeactiveMobile();
+    @include menuDeactiveMobileDeactive();
 }

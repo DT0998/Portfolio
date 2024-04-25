@@ -55,10 +55,10 @@
 @mixin slideBackground($iterationCount) {
     @keyframes slideBackground {
         0% {
-            transform: translateX(-100%);
+            transform: translateX(-120%);
         }
 
-        75%{
+        75% {
             transform: translateX(120%);
         }
 
@@ -68,6 +68,34 @@
     }
 
     animation: slideBackground 5s ease $iterationCount;
+}
+
+@mixin slideHightlightLineDeactive($iterationCount) {
+    @keyframes slideHightlightLineDeactive {
+        0% {
+            transform: translateX(0%);
+        }
+
+        100% {
+            transform: translateX(120%);
+        }
+    }
+
+    animation: slideHightlightLineDeactive 0.6s ease $iterationCount;
+}
+
+@mixin slideHightlightLineActive($iterationCount) {
+    @keyframes slideHightlightLineActive {
+        0% {
+            transform: translateX(-120%);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    animation: slideHightlightLineActive 0.6s ease $iterationCount;
 }
 
 @mixin lineLeftToRight($iterationCount) {
@@ -81,11 +109,11 @@
         }
     }
 
-    animation: lineLeftToRight 10s ease $iterationCount;
+    animation: lineLeftToRight 5s ease $iterationCount;
 }
 
-@mixin menuDeactiveDesktop() {
-    @keyframes menuDeactiveDesktop {
+@mixin menuDeactiveDesktopDeactive() {
+    @keyframes menuDeactiveDesktopDeactive {
         0% {
             transform: translate(-50%, -50%) translateY(0%);
         }
@@ -95,11 +123,25 @@
         }
     }
 
-    animation: menuDeactiveDesktop 0.6s ease forwards;
+    animation: menuDeactiveDesktopDeactive 0.6s ease forwards;
 }
 
-@mixin menuDeactiveMobile() {
-    @keyframes menuDeactiveMobile {
+@mixin menuDeactiveDesktopActive() {
+    @keyframes menuDeactiveDesktopActive {
+        0% {
+            transform: translate(-50%, -50%) translateY(-120%);
+        }
+
+        100% {
+            transform: translate(-50%, -50%) translateY(0%);
+        }
+    }
+
+    animation: menuDeactiveDesktopActive 0.6s ease forwards;
+}
+
+@mixin menuDeactiveMobileDeactive() {
+    @keyframes menuDeactiveMobileDeactive {
         0% {
             transform: translate(-50%, -50%) translateX(0%);
         }
@@ -109,11 +151,24 @@
         }
     }
 
-    animation: menuDeactiveMobile 0.6s ease forwards;
+    animation: menuDeactiveMobileDeactive 0.6s ease forwards;
+}
+
+@mixin menuDeactiveMobileActive() {
+    @keyframes menuDeactiveMobileActive {
+        0% {
+            transform: translate(-50%, -50%) translateX(-120%);
+        }
+
+        100% {
+            transform: translate(-50%, -50%) translateX(0%);
+        }
+    }
+
+    animation: menuDeactiveMobileActive 0.6s ease forwards;
 }
 
 .animation-slideltr {
-    background: $mainColor;
     transition: all .6s ease .4s;
 }
 
