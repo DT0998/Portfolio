@@ -1,5 +1,6 @@
 @import '@/assets/style/variables.scss';
 
+// animation show top text intro
 @mixin showTop($iterationCount) {
     @keyframes showTop {
         0% {
@@ -26,6 +27,7 @@
     animation: showTop 5s ease $iterationCount;
 }
 
+// animation show bottom text intro
 @mixin showBottom($iterationCount) {
     @keyframes showBottom {
         0% {
@@ -52,6 +54,7 @@
     animation: showBottom 5s ease $iterationCount;
 }
 
+// animation slide bg left to right
 @mixin slideBackground($iterationCount) {
     @keyframes slideBackground {
         0% {
@@ -70,6 +73,7 @@
     animation: slideBackground 5s ease $iterationCount;
 }
 
+// animation hightlight line deactive
 @mixin slideHightlightLineDeactive($iterationCount) {
     @keyframes slideHightlightLineDeactive {
         0% {
@@ -84,6 +88,7 @@
     animation: slideHightlightLineDeactive 0.6s ease $iterationCount;
 }
 
+// animation hightlight line active
 @mixin slideHightlightLineActive($iterationCount) {
     @keyframes slideHightlightLineActive {
         0% {
@@ -98,6 +103,7 @@
     animation: slideHightlightLineActive 0.6s ease $iterationCount;
 }
 
+// animation line left to right
 @mixin lineLeftToRight($iterationCount) {
     @keyframes lineLeftToRight {
         0% {
@@ -112,6 +118,7 @@
     animation: lineLeftToRight 5s ease $iterationCount;
 }
 
+// animation menu desktop deactive
 @mixin menuDeactiveDesktopDeactive() {
     @keyframes menuDeactiveDesktopDeactive {
         0% {
@@ -126,6 +133,7 @@
     animation: menuDeactiveDesktopDeactive 0.6s ease forwards;
 }
 
+// animation menu desktop active
 @mixin menuDeactiveDesktopActive() {
     @keyframes menuDeactiveDesktopActive {
         0% {
@@ -140,6 +148,7 @@
     animation: menuDeactiveDesktopActive 0.6s ease forwards;
 }
 
+// animation menu mobile deactive
 @mixin menuDeactiveMobileDeactive() {
     @keyframes menuDeactiveMobileDeactive {
         0% {
@@ -154,6 +163,7 @@
     animation: menuDeactiveMobileDeactive 0.6s ease forwards;
 }
 
+// animation menu mobile active
 @mixin menuDeactiveMobileActive() {
     @keyframes menuDeactiveMobileActive {
         0% {
@@ -166,6 +176,36 @@
     }
 
     animation: menuDeactiveMobileActive 0.6s ease forwards;
+}
+
+// animation hightlight btn deactive
+@mixin hightlightBtnDeactive() {
+    @keyframes hightlightBtnDeactive {
+        0% {
+            transform: translateX(0%);
+        }
+
+        100% {
+            transform: translateX(120%);
+        }
+    }
+
+    animation: hightlightBtnDeactive 0.6s ease forwards;
+}
+
+// animation hightlight btn active
+@mixin hightlightBtnActive() {
+    @keyframes hightlightBtnActive {
+        0% {
+            transform: translateX(-120%);
+        }
+
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    animation: hightlightBtnActive 0.6s ease forwards;
 }
 
 .animation-slideltr {
