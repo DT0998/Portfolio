@@ -1,5 +1,7 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import ContractForm from '@/components/ContactForm/index.vue';
+</script>
 
 <template>
-    contact
+    <ContractForm />
 </template>

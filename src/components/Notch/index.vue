@@ -32,7 +32,7 @@ const lightThemeStyleNotchText = reactive({
 
 </script>
 <template>
-    <div class="flex items-center gap-[16px]" :class="[extraClassContainer]">
+    <div class="flex items-center " :class="[extraClassContainer]">
         <div class="line-project h-[2px]" :style="[isDark ? darkThemeStyleNotchLine : lightThemeStyleNotchLine]"
             :class="[extraClassLine]">
             <div class="notch-project h-[8px]" :style="[isDark ? darkThemeStyleNotchLine : lightThemeStyleNotchLine]"

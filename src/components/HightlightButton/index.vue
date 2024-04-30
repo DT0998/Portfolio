@@ -2,11 +2,13 @@
 import { variables } from '@/assets/style/variables';
 import { useDark } from "@vueuse/core";
 import { reactive, ref } from "vue";
+import type { RouteLocationRaw } from 'vue-router';
 interface IHightlightButtonProps {
     title?: string;
     icon?: string;
+    navigateTo: RouteLocationRaw;
 }
-const { title, icon } = defineProps<IHightlightButtonProps>();
+const { title, icon, navigateTo } = defineProps<IHightlightButtonProps>();
 const isHoverHightlightBtn = ref(false);
 const isDark = useDark();
 // dark theme style send me
@@ -31,18 +33,20 @@ const lightThemeStyleBgSendMe = reactive({
 </script>
 
 <template>
-    <div class="flex items-center" :style="[isDark ? darkThemeStyleSendMe : lightThemeStyleSendMe]"
-        @mouseleave="isHoverHightlightBtn = false" @mouseover="isHoverHightlightBtn = true">
-        <div class="relative overflow-hidden">
-            <div class="w-full absolute top-0 z-[10] w-full h-full animation-slideltr z-[1] opacity-20"
-                :style="[isDark ? darkThemeStyleBgSendMe : lightThemeStyleBgSendMe]"
-                :class="{ 'hightlight-btn-active': isHoverHightlightBtn, 'hightlight-btn-deactive': !isHoverHightlightBtn }">
+    <div class="flex items-center" :style="[isDark ? darkThemeStyleSendMe : lightThemeStyleSendMe]">
+        <router-link :to="navigateTo">
+            <div class="relative overflow-hidden" @mouseleave="isHoverHightlightBtn = false"
+                @mouseover="isHoverHightlightBtn = true">
+                <div class="w-full absolute top-0 z-[10] w-full h-full animation-slideltr z-[1] opacity-20"
+                    :style="[isDark ? darkThemeStyleBgSendMe : lightThemeStyleBgSendMe]"
+                    :class="{ 'hightlight-btn-active': isHoverHightlightBtn, 'hightlight-btn-deactive': !isHoverHightlightBtn }">
+                </div>
+                <div class="px-[10px] flex items-center">
+                    <v-icon :name="icon" class="mr-[10px] h-[24px] w-[24px] relative z-[10]" />
+                    <span class="text-[18px] font-bold relative z-[10]">{{ title }}</span>
+                </div>
             </div>
-            <div class="px-[10px] flex items-center">
-                <v-icon :name="icon" class="mr-[10px] h-[24px] w-[24px] relative z-[10]" />
-                <span class="text-[18px] font-bold relative z-[10]">{{ title }}</span>
-            </div>
-        </div>
+        </router-link>
     </div>
 </template>
 
