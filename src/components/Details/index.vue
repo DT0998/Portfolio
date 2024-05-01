@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import titleBinary from '@/components/TitleBinary/index.vue';
+import TitleBinary from '@/components/TitleBinary/index.vue';
 import myAvatar from '@/assets/images/Details/myAvatar.jpg';
 import Notch from '@/components/Notch/index.vue';
 import HightlightText from '@/components/HightlightText/index.vue';
@@ -9,7 +9,7 @@ import HightlightButton from '@/components/HightlightButton/index.vue';
 <template>
    <div class="flex my-[40px] flex-col xl:flex-row gap-[48px]">
       <div class="w-full h-full">
-         <titleBinary extraClass="text-[36px] md:mb-[32px] font-bold px-[10px]" title="Hi there" />
+         <TitleBinary extraClass="text-[36px] md:mb-[32px] font-bold px-[10px]" title="Hi there" />
          <div class="mb-[32px] px-[10px]" data-aos="zoom-in-up">
             <p class="flex ">
                <span class="opacity-60">

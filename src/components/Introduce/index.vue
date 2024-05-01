@@ -2,7 +2,7 @@
 import { reactive, ref, onMounted, onUnmounted } from "vue";
 import { useDark } from "@vueuse/core";
 import { variables } from '@/assets/style/variables';
-import titleBinary from "@/components/TitleBinary/index.vue";
+import TitleBinary from "@/components/TitleBinary/index.vue";
 const titlesIntroduce = ["Illustrator", "Animator"];
 const titleIntroduce = ref(titlesIntroduce[0]);
 let titleIntroduceIndex = 0;
@@ -48,7 +48,7 @@ onUnmounted(() => {
 
 <template>
     <section class="h-screen flex items-start flex-col justify-center md:p-[64px] px-[10px]">
-        <titleBinary extraClass="text-[1.125rem] opacity-60 md:mb-[32px] tracking-[.3em] font-medium"
+        <TitleBinary extraClass="text-[1.125rem] opacity-60 md:mb-[32px] tracking-[.3em] font-medium"
             title="TRIEU DUONG" />
         <h2 class="w-full">
             <div class="flex items-center h-[42px] md:h-[80px]">
