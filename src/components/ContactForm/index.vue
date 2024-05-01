@@ -48,7 +48,7 @@ const handleSubmit = (values: IContactFormModel) => {
 </script>
 <template>
     <div class="flex justify-center flex-col items-center">
-        <div class="w-[480px] py-[64px]">
+        <div class="max-w-[480px] py-[64px] w-full">
             <h1>
                 <TitleBinary title="Say hello" extraClass="text-[2rem] font-bold" />
             </h1>
