@@ -2,7 +2,7 @@
 import { variables } from '@/assets/style/variables';
 import { reactive } from 'vue';
 interface IHightlightLineProps {
-    isActive?: boolean;
+    isActive?: boolean | HTMLInputElement | null;
     isDark?: boolean;
 }
 const { isActive, isDark } = defineProps<IHightlightLineProps>();
