@@ -10,6 +10,7 @@ const isDark = useDark();
 const store = useStore();
 const isHoverMenu = computed(() => store.state.nav.isHoverMenu);
 const isActiveLinkMenu = computed(() => store.state.nav.isActiveLinkMenu);
+
 const menuActiveClass = (menuId: number) => {
     if (isHoverMenu.value === menuId || isActiveLinkMenu.value === menuId) {
         return 'menu-active-desktop';

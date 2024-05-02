@@ -1,16 +1,21 @@
 export const dataMenuList = [
   {
     id: 1,
-    name: 'Projects',
+    name: 'Introduce',
     path: '/'
   },
   {
     id: 2,
-    name: 'Details',
+    name: 'Projects',
     path: '/'
   },
   {
     id: 3,
+    name: 'Details',
+    path: '/'
+  },
+  {
+    id: 4,
     name: 'Contact',
     path: '/contact'
   }
