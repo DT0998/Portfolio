@@ -65,15 +65,15 @@ const lightThemeStyleMenuBar = reactive({
             :class="{ 'transform-none': openMenu, 'close-menu': !openMenu }"
             :style="[isDark ? darkThemeStyleNav : lightThemeStyleNav]">
             <ul class="w-full h-full flex items-center justify-center flex-col" data-aos="fade-up">
-                <li class="p-[24px] text-center flex justify-center relative overflow-hidden w-[192px] " :key="menu.id"
-                    @mouseleave="store.commit(onHoverMenu, 0)" @mouseover="store.commit(onHoverMenu, menu.id)"
-                    @click="NavigateActiveMenuMobile(menu.id)" v-for="menu of dataMenuList">
-                    <router-link :to="menu.path">
+                <router-link :key="menu.id" :to="menu.path" v-for="menu of dataMenuList">
+                    <li class="p-[24px] text-center flex justify-center relative overflow-hidden w-[192px] "
+                        @mouseleave="store.commit(onHoverMenu, 0)" @mouseover="store.commit(onHoverMenu, menu.id)"
+                        @click="NavigateActiveMenuMobile(menu.id)">
                         {{ menu.name }}
                         <div class="menu-line absolute w-full" :class="menuActiveClass(menu.id)">
                         </div>
-                    </router-link>
-                </li>
+                    </li>
+                </router-link>
             </ul>
             <div
                 class="absolute right-[24px] md:right-[48px] left-[24px] md:left-[48px] bottom-[24px] md:bottom-[16px]">

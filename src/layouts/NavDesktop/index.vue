@@ -24,16 +24,15 @@ const menuActiveClass = (menuId: number) => {
     <div v-if="!isTablet" class="flex flex-auto justify-center">
         <nav class="flex flex-col justify-between items-center">
             <ul class="flex flex-col font-medium">
-                <li :key="menu.id"
-                    class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px] relative flex justify-center overflow-hidden"
-                    @mouseleave="store.commit(onHoverMenu, 0)" @mouseover="store.commit(onHoverMenu, menu.id)"
-                    @click="store.commit(onActiveLinkMenu, menu.id)" v-for="menu of dataMenuList">
-                    <router-link :to="menu.path">
+                <router-link :key="menu.id" :to="menu.path" v-for="menu of dataMenuList">
+                    <li class="[writing-mode:vertical-lr] p-[16px] rotate-180 cursor-pointer menu-title my-[10px] relative flex justify-center overflow-hidden"
+                        @mouseleave="store.commit(onHoverMenu, 0)" @mouseover="store.commit(onHoverMenu, menu.id)"
+                        @click="store.commit(onActiveLinkMenu, menu.id)">
                         {{ menu.name }}
                         <div class="menu-line absolute max-w-[192px] h-full" :class="menuActiveClass(menu.id)">
                         </div>
-                    </router-link>
-                </li>
+                    </li>
+                </router-link>
             </ul>
             <ul>
                 <a href="https://github.com/DT0998" target="_blank">
