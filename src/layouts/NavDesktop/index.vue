@@ -22,7 +22,6 @@ const menuActiveClass = (menuId: number) => {
 
 <template>
     <div v-if="!isTablet" class="flex flex-auto justify-center">
-        {{ isActiveLinkMenu }}
         <nav class="flex flex-col justify-between items-center">
             <ul class="flex flex-col font-medium">
                 <li :key="menu.id"
