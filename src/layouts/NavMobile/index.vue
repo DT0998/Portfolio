@@ -1,15 +1,36 @@
 <script setup lang="ts">
 import ButtonDarkmode from "@/components/ButtonDarkmode/index.vue";
 import { useMediaQuery, useDark } from '@vueuse/core';
-import { reactive, ref } from "vue";
+import { computed, reactive, ref } from "vue";
 import { variables } from '@/assets/style/variables';
 import { dataMenuList } from '@/utils/data/menu';
+import { useStore } from 'vuex';
+import { onHoverMenu, onActiveLinkMenu } from '@/store/layouts/Nav/store';
+const store = useStore();
+const isHoverMenu = computed(() => store.state.nav.isHoverMenu);
+const isActiveLinkMenu = computed(() => store.state.nav.isActiveLinkMenu);
 const isDark = useDark();
 const isTablet = useMediaQuery('(max-width: 768px)')
 const openMenu = ref(false)
-const isHover = ref(false);
-const isHoverMenu = ref(0);
-const isActiveLinkMenu = ref(false);
+const isHoverMenuBar = ref(false);
+
+const NavigateActiveMenuMobile = (menuId: number) => {
+    store.commit(onActiveLinkMenu, menuId);
+    // delay close menu
+    setTimeout(() => {
+        toggleMenu();
+    }, 500);
+}
+
+const menuActiveClass = (menuId: number) => {
+    if (isHoverMenu.value === menuId || isActiveLinkMenu.value === menuId) {
+        return 'menu-active-mobile';
+    }
+    if (isHoverMenu.value !== menuId || isActiveLinkMenu.value !== menuId) {
+        return 'menu-deactive-mobile';
+    }
+}
+
 const toggleMenu = () => {
     openMenu.value = !openMenu.value
 }
@@ -24,14 +45,14 @@ const lightThemeStyleNav = reactive({
     background: `color-mix(in lab, ${variables.$bgLight} 70%, transparent)`,
 })
 
-// dark theme style menu
-const darkThemeStyleMenu = reactive({
+// dark theme style menu bar
+const darkThemeStyleMenuBar = reactive({
     background: `color-mix(in lab, ${variables.$colorMixDark} 10%, transparent)`,
     clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)',
 })
 
-// white theme style menu
-const lightThemeStyleMenu = reactive({
+// white theme style menu bar
+const lightThemeStyleMenuBar = reactive({
     background: `color-mix(in lab, ${variables.$colorMixLight} 10%, transparent)`,
     clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)',
 })
@@ -40,16 +61,16 @@ const lightThemeStyleMenu = reactive({
 
 <template>
     <div v-if="isTablet">
-        <nav class="flex flex-col justify-between items-center flex-auto fixed z-[3] w-full h-full overlay"
+        <nav class="flex flex-col justify-between items-center flex-auto fixed z-[11] w-full h-full overlay"
             :class="{ 'transform-none': openMenu, 'close-menu': !openMenu }"
             :style="[isDark ? darkThemeStyleNav : lightThemeStyleNav]">
             <ul class="w-full h-full flex items-center justify-center flex-col" data-aos="fade-up">
                 <li class="p-[24px] text-center flex justify-center relative overflow-hidden w-[192px] " :key="menu.id"
-                    @mouseleave="isHoverMenu = 0" @mouseover="isHoverMenu = menu.id" v-for="menu of dataMenuList">
+                    @mouseleave="store.commit(onHoverMenu, 0)" @mouseover="store.commit(onHoverMenu, menu.id)"
+                    @click="NavigateActiveMenuMobile(menu.id)" v-for="menu of dataMenuList">
                     <router-link :to="menu.path">
                         {{ menu.name }}
-                        <div class="menu-line absolute w-full"
-                            :class="{ 'menu-active-mobile': isHoverMenu === menu.id, 'menu-deactive-mobile': isHoverMenu !== menu.id }">
+                        <div class="menu-line absolute w-full" :class="menuActiveClass(menu.id)">
                         </div>
                     </router-link>
                 </li>
@@ -66,9 +87,10 @@ const lightThemeStyleMenu = reactive({
             </div>
         </nav>
         <button
-            class="menu-wrapper fixed right-[24px] md:right-[48px] top-[24px] md:top-[48px] z-[5] flex flex-col p-[8px] h-[50px]"
-            @click="toggleMenu()" :class="{ 'active': openMenu }" @mouseleave="isHover = false"
-            @mouseover="isHover = true" :style="[isHover && (isDark ? darkThemeStyleMenu : lightThemeStyleMenu)]">
+            class="menu-wrapper fixed right-[24px] md:right-[48px] top-[24px] md:top-[48px] z-[11] flex flex-col p-[8px] h-[50px]"
+            @click="toggleMenu()" :class="{ 'active': openMenu }" @mouseleave="isHoverMenuBar = false"
+            @mouseover="isHoverMenuBar = true"
+            :style="[isHoverMenuBar && (isDark ? darkThemeStyleMenuBar : lightThemeStyleMenuBar)]">
             <div class="menu-bar one-bar relative cursor-pointer w-[24px] min-h-[5px]"
                 :class="{ 'bg-white': isDark, 'bg-black': !isDark }"></div>
             <div class="menu-bar two-bar relative cursor-pointer w-[24px] min-h-[5px]"

@@ -7,7 +7,7 @@ import SvgTumblr from "@/components/SvgTumblr/index.vue";
 <template>
     <header class="flex flex-col">
         <div
-            class="fixed w-[48px] left-[24px] md:left-[48px] lg:left-[58px] top-[24px] md:top-[48px] lg:top-[58px] lg:bottom-[58px] flex flex-col z-[5] mt-[8px]">
+            class="fixed w-[48px] left-[24px] md:left-[48px] lg:left-[58px] top-[24px] md:top-[48px] lg:top-[58px] lg:bottom-[58px] flex flex-col z-[12] mt-[8px]">
             <!-- svg tumblr -->
             <router-link to="/">
                 <SvgTumblr />
