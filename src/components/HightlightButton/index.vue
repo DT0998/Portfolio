@@ -7,8 +7,9 @@ interface IHightlightButtonProps {
     title?: string;
     icon?: string;
     navigateTo: RouteLocationRaw;
+    onClick?: () => void;
 }
-const { title, icon, navigateTo } = defineProps<IHightlightButtonProps>();
+const { title, icon, navigateTo, onClick } = defineProps<IHightlightButtonProps>();
 const isHoverHightlightBtn = ref(false);
 const isDark = useDark();
 // dark theme style send me
@@ -33,7 +34,7 @@ const lightThemeStyleBgSendMe = reactive({
 </script>
 
 <template>
-    <div class="flex items-center" :style="[isDark ? darkThemeStyleSendMe : lightThemeStyleSendMe]">
+    <div class="flex items-center" :style="[isDark ? darkThemeStyleSendMe : lightThemeStyleSendMe]" @click="onClick">
         <router-link :to="navigateTo">
             <div class="relative overflow-hidden" @mouseleave="isHoverHightlightBtn = false"
                 @mouseover="isHoverHightlightBtn = true">

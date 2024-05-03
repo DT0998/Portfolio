@@ -1,8 +1,19 @@
 <script setup lang="ts">
 interface IModelDeviceProps {
-    type?: string;
-    texture?: string;
+    typeModel?: string;
+    texture?: IModelDeviceTextures[];
+    showDelay?: number;
+    cameraPosition?: IModelDeviceCameraPosition;
 }
-const {type} = defineProps<IModelDeviceProps>();
+interface IModelDeviceCameraPosition {
+    x: number;
+    y: number;
+    z: number;
+}
+interface IModelDeviceTextures {
+    srcSet: string;
+    placeholder: string;
+}
+const { typeModel, texture, showDelay = 0, cameraPosition = { x: 0, y: 0, z: 8 } } = defineProps<IModelDeviceProps>();
 </script>
-<template>Model Device</template>
+<template>Model Device {{ typeModel }}</template>

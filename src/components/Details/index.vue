@@ -4,6 +4,9 @@ import myAvatar from '@/assets/images/Details/myAvatar.jpg';
 import Notch from '@/components/Notch/index.vue';
 import HightlightText from '@/components/HightlightText/index.vue';
 import HightlightButton from '@/components/HightlightButton/index.vue';
+import { useStore } from 'vuex';
+import { onActiveLinkMenu } from '@/store/layouts/Nav/store';
+const store = useStore();
 </script>
 
 <template>
@@ -18,7 +21,7 @@ import HightlightButton from '@/components/HightlightButton/index.vue';
                <HightlightText title="adadadad" />
             </p>
          </div>
-         <HightlightButton title="Send me a message" icon="io-send" navigateTo="/contact" />
+          <HightlightButton title="Send me a message" icon="io-send" navigateTo="/contact" :onClick="() => store.commit(onActiveLinkMenu, 4)"/>
       </div>
       <div class="w-full h-full px-[10px]">
          <Notch title="About me" extraClassLine="max-w-[90px]" extraClassNotch="max-w-[64px]"
