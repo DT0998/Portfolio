@@ -5,7 +5,7 @@ import { onMounted } from 'vue';
 
 interface IDeviceProps {
     rerender?: WebGLRendererParameters,
-    model?: IModel,
+    model: IModel,
     size?: string,
     modelGroup?: string
 }
