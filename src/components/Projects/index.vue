@@ -12,7 +12,7 @@ interface IProjectsProps {
     desc?: string;
     extraClass?: string;
     typeModel?: string;
-    models?: IModel;
+    models?: IModel[];
 }
 const { id, title, desc, extraClass, models } = defineProps<IProjectsProps>();
 // dark theme style button
