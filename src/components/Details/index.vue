@@ -27,7 +27,7 @@ const store = useStore();
          <Notch title="About me" extraClassLine="max-w-[90px]" extraClassNotch="max-w-[64px]"
             extraClassContainer="mt-[30px] xl:mt-[220px] mb-[40px] px-[10px] gap-[16px]" />
          <div class="h-full relative z-[1] overflow-hidden">
-            <div class="avatar w-full absolute top-0 z-[10] w-full h-full animation-slideltr"></div>
+            <div class="avatar w-full absolute top-0 z-[10] w-full h-full animation-slideltr animation-slideltr-avatar"></div>
             <img :src="myAvatar" alt="its me" class="avatar-img" />
          </div>
       </div>
@@ -37,12 +37,15 @@ const store = useStore();
 <style lang="scss">
 @import '@/assets/style/animations.scss';
 
+.animation-slideltr-avatar {
+    background: $mainColor;
+}
+
 .avatar {
    @include slideBackground(forwards);
 }
 
 .avatar-img {
-   transition: all .6s ease .4s;
    @include showTop(forwards);
 }
 </style>
