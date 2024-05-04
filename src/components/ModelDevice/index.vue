@@ -23,12 +23,12 @@ interface ITexture {
 }
 
 export interface IModel {
-    animation: string;
-    height: number;
-    position: ITargetPosition;
-    texture: ITexture;
-    url: string;
-    width: number;
+    animation?: string;
+    height?: number;
+    position?: ITargetPosition;
+    texture?: ITexture;
+    url?: string;
+    width?: number;
 }
 const { typeModel, models, show = true, showDelay = 0, cameraPosition = { x: 0, y: 0, z: 8 } } = defineProps<IModelDeviceProps>();
 const isPhoneScreen = useMediaQuery('(max-width: 1024px)')

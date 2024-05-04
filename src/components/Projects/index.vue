@@ -3,7 +3,7 @@ import { reactive, ref } from "vue";
 import { useDark } from "@vueuse/core";
 import { variables } from '@/assets/style/variables';
 import Notch from '@/components/Notch/index.vue';
-import ModelDevice, { type IModels } from '@/components/ModelDevice/index.vue';
+import ModelDevice, { type IModel } from '@/components/ModelDevice/index.vue';
 const isHoverBtn = ref(false);
 const isDark = useDark();
 interface IProjectsProps {
@@ -12,7 +12,7 @@ interface IProjectsProps {
     desc?: string;
     extraClass?: string;
     typeModel?: string;
-    models?: IModels;
+    models?: IModel;
 }
 const { id, title, desc, extraClass, models } = defineProps<IProjectsProps>();
 // dark theme style button
