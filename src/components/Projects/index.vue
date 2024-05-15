@@ -26,7 +26,7 @@ const lightThemeStyleBtn = reactive({
 })
 </script>
 <template>
-    <div class="flex flex-col-reverse my-[64px] gap-[48px] px-[10px]" :class="[extraClass]">
+    <div class="flex flex-col-reverse my-[64px] px-[10px]" :class="[extraClass]">
         <div class="flex flex-col items-center">
             <div class="max-w-[480px]">
                 <Notch :title="id" extraClassLine="max-w-[90px]" extraClassNotch="max-w-[64px] "

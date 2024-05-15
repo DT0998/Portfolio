@@ -13,13 +13,14 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@egjs/vue3-view3d": "^2.3.1",
     "@vueuse/core": "^10.9.0",
     "@vueuse/motion": "^2.1.0",
     "aos": "^2.3.4",
     "gsap": "^3.12.5",
     "oh-vue-icons": "^1.0.0-rc3",
-    "three": "^0.163.0",
-    "three-stdlib": "^2.8.12",
+    "three": "^0.161.0",
+    "three-stdlib": "^2.29.4",
     "vee-validate": "^4.12.6",
     "vue": "^3.3.11",
     "vue-router": "^4.2.5",

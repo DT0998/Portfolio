@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import type { WebGLRendererParameters } from 'three';
 import type { IModel } from '../ModelDevice/index.vue';
-import { onMounted } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 
 interface IDeviceProps {
-    rerender?: WebGLRendererParameters,
     model: IModel,
     size?: string,
-    modelGroup?: string
+    extraHeight?: number,
 }
 
 export interface ITargetPosition {
@@ -15,12 +13,14 @@ export interface ITargetPosition {
     y: number;
     z: number;
 }
-const { rerender, model, size, modelGroup } = defineProps<IDeviceProps>();
-const loadModel = async () => {
-    const { texture, url, position } = model;
-}
+const { model, size, extraHeight } = defineProps<IDeviceProps>();
+
+const { texture, url, position } = model;
+
 onMounted(() => {
-    console.log('model', model);
-    loadModel();
 })
 </script>
+
+<template>
+    <View3D :src="url" class="w-full h-full" />
+</template>

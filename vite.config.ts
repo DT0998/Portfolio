@@ -12,13 +12,10 @@ export default defineConfig({
     }),
     vueJsx()
   ],
-  assetsInclude: [
-    '**/*.glb',
-    '**/*.gltf'
-  ],
+  assetsInclude: ['**/*.glb', '**/*.hdr', '**/*.glsl'],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
 })
